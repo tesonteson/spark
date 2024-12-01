@@ -1,0 +1,38 @@
+services:
+  spark:
+    image: spark-image
+    build: ./
+    container_name: spark
+    hostname: spark.spark
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ./
+        target: /opt/spark/work-dir/
+    ports:
+      - "4040:4040"
+    networks:
+      - spark-network
+
+  db:
+    image: mysql
+    container_name: db
+    hostname: db.spark
+    stdin_open: true
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: "Asia/Tokyo"
+    volumes:
+      - type: bind
+        source: ./db/data
+        target: /var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - spark-network
+
+networks:
+  spark-network:
+    driver: bridge

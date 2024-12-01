@@ -1,0 +1,6 @@
+.bsp
+.idea
+target
+spark-warehouse
+metastore_db
+db/data
