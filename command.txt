@@ -19,3 +19,13 @@ ${SPARK_HOME}/bin/spark-submit \
 --jars ${SPARK_HOME}/work-dir/target/mysql-connector-j-9.1.0.jar \
 --driver-class-path ${SPARK_HOME}/work-dir/target/mysql-connector-j-9.1.0.jar \
 target/scala-2.12/main-scala_2.12-1.0.jar
+
+
+
+${SPARK_HOME}/bin/spark-submit \
+--class main.scala.HigherOrderFunc \
+--master local[*] \
+--files ${SPARK_HOME}/work-dir/conf/log4j.properties \
+--conf "spark.driver.extraJavaOptions=-Dlog4j.configuration=file:${SPARK_HOME}/work-dir/conf/log4j.properties" \
+--conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=file:${SPARK_HOME}/work-dir/conf/log4j.properties" \
+target/scala-2.12/main-scala_2.12-1.0.jar

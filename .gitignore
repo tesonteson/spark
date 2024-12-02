@@ -10,3 +10,4 @@ target/.history3
 spark-warehouse
 metastore_db
 derby.log
+db/data/
