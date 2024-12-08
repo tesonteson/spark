@@ -1,12 +1,10 @@
 ${SPARK_HOME}/bin/spark-submit \
---class main.scala.MnMcount \
 --master local[*] \
 --files ${SPARK_HOME}/work-dir/conf/log4j.properties \
 --conf "spark.driver.extraJavaOptions=-Dlog4j.configuration=file:${SPARK_HOME}/work-dir/conf/log4j.properties" \
 --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=file:${SPARK_HOME}/work-dir/conf/log4j.properties" \
-target/scala-2.12/main-scala_2.12-1.0.jar \
-./src/main/scala/data/mnm_dataset.csv \
-./src/main/scala/data/mnm_dataset_output
+read_data.py \
+--data_path "./data/mnm_dataset.csv"
 
 
 

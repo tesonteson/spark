@@ -12,6 +12,7 @@ services:
         target: /opt/spark/work-dir/
     ports:
       - "4040:4040"
+      - "8080:8080"
     networks:
       - spark-network
 
