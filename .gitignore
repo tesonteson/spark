@@ -2,3 +2,4 @@ spark-warehouse
 metastore_db
 db/data/*
 !db/data/.gitkeep
+venv
